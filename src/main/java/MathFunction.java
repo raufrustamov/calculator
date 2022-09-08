@@ -16,4 +16,8 @@ public class MathFunction {
     public static double toDivide(double firstArgument, double secondArgument) {
         return firstArgument / secondArgument;
     }
+
+    public static double toExponentiate(double number,double degree) {
+        return Math.pow(number,degree);
+    }
 }
