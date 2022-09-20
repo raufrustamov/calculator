@@ -7,45 +7,44 @@ public class ArgumentInput {
     private static final String DEGREE = "Enter a degree:";
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static double firstArguments() {
-        System.out.println(FIRST_ARGUMENT);
-        while (!scanner.hasNextDouble()) {
-            String input = scanner.next();
-            System.out.println("Invalid: " + input);
+    private static final double[] argArray = new double[2];
+
+    public static double[] argument(MathOperations.Operations operations) {
+
+        if (operations == MathOperations.Operations.ADD || operations == MathOperations.Operations.DIVISION || operations == MathOperations.Operations.MULTIPLY
+                || operations == MathOperations.Operations.SUBTRACT) {
+
             System.out.println(FIRST_ARGUMENT);
-        }
-        return scanner.nextDouble();
-    }
-
-    public static double secondArgument() {
-        System.out.println(SECOND_ARGUMENT);
-        while (!scanner.hasNextDouble()) {
-            String input = scanner.next();
-            System.out.println("Invalid: " + input);
+            while (!scanner.hasNextDouble()) {
+                String input = scanner.next();
+                System.out.println("Invalid: " + input);
+                System.out.println(FIRST_ARGUMENT);
+            }
+            argArray[0] = scanner.nextDouble();
             System.out.println(SECOND_ARGUMENT);
-        }
-        return scanner.nextDouble();
-    }
-
-    public static double number(){
-        System.out.println(NUMBER);
-        while (!scanner.hasNextDouble()) {
-            String input = scanner.next();
-            System.out.println("Invalid: " + input);
+            while (!scanner.hasNextDouble()) {
+                String input = scanner.next();
+                System.out.println("Invalid: " + input);
+                System.out.println(SECOND_ARGUMENT);
+            }
+            argArray[1] = scanner.nextDouble();
+        } else if (operations == MathOperations.Operations.EXPONENTIATION) {
             System.out.println(NUMBER);
-        }
-        return scanner.nextDouble();
-
-    }
-
-    public static double degree(){
-        System.out.println(DEGREE);
-        while (!scanner.hasNextDouble()) {
-            String input = scanner.next();
-            System.out.println("Invalid: " + input);
+            while (!scanner.hasNextDouble()) {
+                String input = scanner.next();
+                System.out.println("Invalid: " + input);
+                System.out.println(NUMBER);
+            }
+            argArray[0] = scanner.nextDouble();
             System.out.println(DEGREE);
+            while (!scanner.hasNextDouble()) {
+                String input = scanner.next();
+                System.out.println("Invalid: " + input);
+                System.out.println(DEGREE);
+            }
+            argArray[1] = scanner.nextDouble();
         }
-        return scanner.nextDouble();
-
+        return argArray;
     }
+
 }
