@@ -1,3 +1,5 @@
+package com.it_academy.calculator;
+
 public class MathOperations {
     enum Operations{
         ADD,
