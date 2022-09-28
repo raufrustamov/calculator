@@ -14,6 +14,7 @@ public class CalculatorTest {
         dataForTest[0]=argOne;
         dataForTest[1]=argTwo;
         assertEquals(expResult,MathFunction.addition(dataForTest),0);
+
     }
 
     @ParameterizedTest
@@ -38,6 +39,14 @@ public class CalculatorTest {
         dataForTest[0]=argOne;
         dataForTest[1]=argTwo;
         assertEquals(expResult,MathFunction.division(dataForTest),0);
+    }
+
+    @ParameterizedTest
+    @CsvSource({"2,2,4","23,0,1","0,2,0"})
+    public void testExponentiation(double argOne,double argTwo, double expResult ){
+        dataForTest[0]=argOne;
+        dataForTest[1]=argTwo;
+        assertEquals(expResult,MathFunction.exponentiation(dataForTest),0);
     }
 
 }
